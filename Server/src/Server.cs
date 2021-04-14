@@ -9,7 +9,7 @@ namespace Server
 {
     class Server
     {
-        public List<Socket> Clients { get; set; }
+        private List<Socket> Clients { get; set; }
         private Socket Serv { get; set; }
 
         public Server()
