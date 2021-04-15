@@ -60,8 +60,8 @@ namespace Client
                     IPAddress ipAddress = ipHostInfo.AddressList[0];
                     serv_connect = new(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
-                    IPEndPoint localEndPoint = new(IPAddress.Parse(serv_ip), Convert.ToInt32(serv_port));
-                    serv_connect.Connect(localEndPoint);
+                    IPEndPoint serverEndPoint = new(IPAddress.Parse(serv_ip), Convert.ToInt32(serv_port));
+                    serv_connect.Connect(serverEndPoint);
 
                     serv_connect.Send(Encoding.UTF8.GetBytes(nick));
                     key = false;
