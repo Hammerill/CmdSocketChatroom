@@ -56,8 +56,6 @@ namespace Client
 
                 try
                 {
-                    IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-                    IPAddress ipAddress = ipHostInfo.AddressList[0];
                     serv_connect = new(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
                     IPEndPoint serverEndPoint = new(IPAddress.Parse(serv_ip), Convert.ToInt32(serv_port));
@@ -81,11 +79,6 @@ namespace Client
             {
                 inp = Console.ReadLine();
 
-                if (inp == "/q")
-                {
-                    break;
-                }
-
                 try
                 {
                     serv_connect.Send(Encoding.UTF8.GetBytes(inp));
@@ -95,9 +88,6 @@ namespace Client
                     Console.WriteLine($"\nОшибка сети...\nНе удаётся отправить сообщение из-за ошибки: \"{e.Message}\".\nУбедитесь, что интернет и сервер в порядке.\n");
                 }
             }
-
-            serv_connect.Close();
-            serv_connect.Shutdown(SocketShutdown.Both);
         }
     }
 }
