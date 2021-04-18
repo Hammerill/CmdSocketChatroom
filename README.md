@@ -1,2 +1,2 @@
 # CmdSocketChatroom
-То же самое, что и Hammerill/SocketServer, но переписанное под C#.
+Same as Hammerill/SocketServer, but written in C#.
